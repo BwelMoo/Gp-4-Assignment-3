@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Tech Navbar</title>
+
+  <!-- Google Fonts: Poppins (Headings) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Background */
+      --bg-gradient: linear-gradient(120deg, #21476f, #121f35, #03040B);
+      
+      /* Glass Surface Tones */
+      --glass-bg: rgba(32, 43, 56, 0.45);          
+      --glass-border: rgba(185, 232, 255, 0.12);    
+      
+      /* Typography Colors */
+      --text-heading: #FFFFFF;    
+      --text-body: #DCEBFA;       
+      --accent-blue: #69C9FF;     
+      --text-muted: #A9B8CC;      
+      --ice-blue: #B9E8FF;       
+
+      /* Fonts */
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      font-family: var(--font-body);
+      color: var(--text-body);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 64px);
+      max-width: 1240px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 100px;
+      padding: 12px 28px;
+      z-index: 1000;
+      box-shadow: 0 16px 40px rgba(3, 4, 11, 0.6),
+                  inset 0 1px 0 rgba(185, 232, 255, 0.15);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Brand / Logo */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent-blue);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    /* Navigation Link & Animated Underline Effect */
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent-blue);
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(105, 201, 255, 0.8);
+      transform: translateX(-50%);
+      transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-heading);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .status-tag {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(7, 21, 34, 0.4);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-blue);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-blue);
+    }
+
+    /* Connect Button */
+    .btn-primary {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #071522;
+      background: linear-gradient(135deg, var(--ice-blue) 0%, var(--accent-blue) 100%);
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(105, 201, 255, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(105, 201, 255, 0.45);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      
+      <a href="#" class="nav-logo">
+        MZ<span class="logo-dot"></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#vision" class="active">Home</a></li>
+        <li><a href="#innovations">About Me</a></li>
+        <li><a href="#spatial">My Skills & Goals</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="status-tag">
+          <span class="status-dot"></span>
+          <span>Meta Horizon Active</span>
+        </div>
+        <a href="#connect" class="btn-primary">Connect</a>
+      </div>
+    </div>
+  </nav>
+
+</body>
+</html>
