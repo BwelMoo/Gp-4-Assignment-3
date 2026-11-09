@@ -312,15 +312,6 @@ body {
   margin-bottom: 3.5rem;
 }
 
-.section-header h3 {
-  color: var(--text-muted);
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-heading);
-}
-
 .section-header h1 {
   font-family: var(--font-heading);
   font-size: 2.5rem;
